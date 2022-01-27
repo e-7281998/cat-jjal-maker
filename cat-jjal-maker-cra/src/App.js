@@ -32,6 +32,7 @@ const App = () => {
   const [favorites, setFavorites] = React.useState(() => {
     return (jsonLocalStorage.getItem('favorites') || []);
   });
+  const [heartOnMessage, setHeatOnMessage] = React.useState('');
 
   const alreadyFavorite = favorites.includes(mainCat);
 
@@ -47,6 +48,7 @@ const App = () => {
     const newCat = await fetchCat(value);
 
     setMainCat(newCat);
+    setHeatOnMessage('');
     setCounter((prev) => {
       const nextCounter = prev + 1;
       jsonLocalStorage.setItem('counter', nextCounter);
@@ -56,9 +58,14 @@ const App = () => {
   }
 
   function handleHeartClick() {
-    const nextFavorites = [...favorites, mainCat];
-    setFavorites(nextFavorites);
-    jsonLocalStorage.setItem('favorites', nextFavorites);
+    if (alreadyFavorite) {
+      setHeatOnMessage('이미 저장됨');
+    } else {
+      const nextFavorites = [...favorites, mainCat];
+      setFavorites(nextFavorites);
+      jsonLocalStorage.setItem('favorites', nextFavorites);
+      setHeatOnMessage('');
+    }
   }
 
   const counterTitle = counter === null ? '' : counter + '번째 '
@@ -67,7 +74,7 @@ const App = () => {
     <div>
       <Title>{counterTitle} 고양이 가라사대</Title>
       <Form updateMainCat={updateMainCat} />
-      <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} />
+      <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} heartOnMessage={heartOnMessage} />
       <Favorites favorites={favorites} />
     </div>
   )

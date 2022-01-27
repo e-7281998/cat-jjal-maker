@@ -5,6 +5,10 @@ function CatItem(props) {
                 src={props.img}
                 style={{ width: '150px' }}
             />
+            <div>
+                <button className="look">보기</button>
+                <button className="delete">삭제</button>
+            </div>
         </li>
     );
 }
@@ -17,7 +21,9 @@ function Favorites({ favorites }) {
     }
     return (
         <ul className="favorites">
-            {favorites.map(cat => <CatItem img={cat} key={cat} />)}
+            {favorites.map(cat =>
+                <CatItem className="catitem" img={cat} key={cat} />
+            )}
         </ul>)
 };
 
