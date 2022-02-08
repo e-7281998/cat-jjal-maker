@@ -23,13 +23,13 @@ body {
     position: relative;
     align-items: center;
   }
-  .favorites img:hover ~ div {
+  .favorites img:hover ~ div, .favorites img:hover ~ button {
     display: block;
  
   }
   .favorites img:hover {
     opacity: 0.7;
-    cursor: pointer;
+    /* cursor: pointer; */
   }
   .favorites div{
     display: none;

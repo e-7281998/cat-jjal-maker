@@ -67,6 +67,18 @@ const App = () => {
       setHeatOnMessage('');
     }
   }
+  function handleRemoveClick(value) {
+    for (let i = 0; i < favorites.length; i++) {
+      if (favorites[i] === value) {
+        if (value === mainCat) setHeatOnMessage('');
+        localStorage.removeItem('favorites');
+        const removeNext = favorites.filter(cat => cat !== favorites[i]);
+        setFavorites(removeNext);
+        jsonLocalStorage.setItem('favorites', removeNext);
+        break;
+      }
+    }
+  }
 
   const counterTitle = counter === null ? '' : counter + '번째 '
 
@@ -75,7 +87,7 @@ const App = () => {
       <Title>{counterTitle} 고양이 가라사대</Title>
       <Form updateMainCat={updateMainCat} />
       <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} heartOnMessage={heartOnMessage} />
-      <Favorites favorites={favorites} />
+      <Favorites favorites={favorites} onRemoveClick={handleRemoveClick} />
     </div>
   )
 }
