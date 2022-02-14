@@ -6,6 +6,16 @@ import MainCard from './components/MainCard';
 import Favorites from './components/Favorites';
 import Form from './components/Form';
 
+import audio1 from './cat-sound/sound1.mp3';
+import audio2 from './cat-sound/sound2.MP3';
+import audio3 from './cat-sound/sound3.MP3';
+import audio4 from './cat-sound/sound4.MP3';
+
+const catSound = [audio1, audio2, audio3, audio4];
+const catSoundStart = (num) => {
+  new Audio(catSound[num]).play();
+}
+
 const jsonLocalStorage = {
   setItem: (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
@@ -61,6 +71,7 @@ const App = () => {
     if (alreadyFavorite) {
       setHeatOnMessage('이미 저장됨');
     } else {
+      catSoundStart(Math.floor(Math.random() * 4));
       const nextFavorites = [...favorites, mainCat];
       setFavorites(nextFavorites);
       jsonLocalStorage.setItem('favorites', nextFavorites);

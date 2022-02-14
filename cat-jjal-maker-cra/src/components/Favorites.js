@@ -5,7 +5,6 @@ function handleShowClick(e) {
 }
 
 function CatItem(props) {
-    console.log(props.onRemoveClick);
     function handleDeleteClick(e) {
         e.preventDefault();
         props.onRemoveClick(e.target.value);
