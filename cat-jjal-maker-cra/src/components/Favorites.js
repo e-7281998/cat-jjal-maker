@@ -1,3 +1,4 @@
+import { useState } from 'react';
 
 function handleShowClick(e) {
     e.preventDefault();
@@ -5,24 +6,31 @@ function handleShowClick(e) {
 }
 
 function CatItem(props) {
+    const [over, setOver] = useState(false);
+
     function handleDeleteClick(e) {
         e.preventDefault();
         props.onRemoveClick(e.target.value);
     }
     return (
-        <li>
+        <li >
             <form>
                 <img
                     src={props.img}
                     style={{ width: '150px' }}
+                    onMouseOver={() => setOver(true)}
+                    onMouseLeave={() => setOver(false)}
+                    className={over ? 'on' : ''}
                 />
-                <div>
-                    <button className="look" onClick={handleShowClick} value={props.img}>보기</button>
-                    <button className="delete" onClick={handleDeleteClick} value={props.img}>삭제</button>
+                <div className={over ? 'over' : ''}
+                    onMouseOver={() => setOver(true)}
+                    onMouseLeave={() => setOver(false)}>
+                    <button onClick={handleShowClick} value={props.img}>보기</button>
+                    <button onClick={handleDeleteClick} value={props.img}>삭제</button>
                 </div>
             </form>
 
-        </li>
+        </li >
     );
 }
 

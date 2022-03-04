@@ -28,7 +28,7 @@ const Form = ({ updateMainCat }) => {
         updateMainCat(value);
     }
     return (
-        < form onSubmit={handleFormSubmit} >
+        < form className='form' onSubmit={handleFormSubmit} >
             <input
                 type="text"
                 name="name"

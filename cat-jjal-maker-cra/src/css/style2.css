@@ -1,0 +1,103 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 225, 148,0.5);
+}
+h1{
+    font-size: 2.5rem;
+    color: salmon;
+}
+.form input {
+    background: white;
+    border: 0.1875rem solid #5d7697;
+    padding: 0.5rem 1rem ;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+}
+.form button {
+    border-radius: 0.5rem;
+    color: white;
+    background: rgb(93, 118, 151);
+    border: none;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+.main-card button{
+    position: relative;
+    left: -3.875rem;
+    bottom: 1.9375rem;
+}
+.main-card img{
+    border-radius: 0.125rem;
+    padding: 0.5rem;
+    border: 0.5rem dashed #b0c4de;
+}
+.main-card p{
+    text-align: center;
+    color: red;
+}
+.main-card button{
+    background: white;
+    border: none;
+    border-radius: 1rem;
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+}
+li{
+    margin: 0.5rem 1rem;
+    position: relative;
+    padding: 0.5rem;
+}
+li img{
+    width: 100%;
+    height: 100%;
+    border: 0.3125rem solid white;
+    box-shadow: 1rem 1rem 2rem black;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+li form div {
+    display: none;
+}
+li div {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition: all 0.3s 0.3s ease-in-out;
+
+}
+li button {
+    background: white;
+    border: none;
+    padding: 0.1875rem;
+    font-size: 0.5rem;
+    margin: 2px;
+    border-radius: 0.125rem;
+    font-weight: bold;
+}
+li button:hover{
+    background-color: black;
+    color: white;
+}
+button:hover{
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+}
+.on{
+    opacity: 0.5;
+    border: 0rem solid transparent;
+    box-sizing: border-box;
+}
+.over{
+    display: block;
+}

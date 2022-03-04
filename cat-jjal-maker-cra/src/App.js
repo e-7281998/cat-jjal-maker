@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import React from 'react';
-import './css/style.css';
+import './css/style2.css';
 import Title from './components/Title';
 import MainCard from './components/MainCard';
 import Favorites from './components/Favorites';
@@ -94,7 +94,7 @@ const App = () => {
   const counterTitle = counter === null ? '' : counter + '번째 '
 
   return (
-    <div>
+    <div className='container'>
       <Title>{counterTitle} 고양이 가라사대</Title>
       <Form updateMainCat={updateMainCat} />
       <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} heartOnMessage={heartOnMessage} />

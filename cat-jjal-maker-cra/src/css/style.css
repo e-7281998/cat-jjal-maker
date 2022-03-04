@@ -23,14 +23,17 @@ body {
     position: relative;
     align-items: center;
   }
+
+
   .favorites img:hover ~ div, .favorites img:hover ~ button {
-    display: block;
+    /* display: block; */
  
   }
   .favorites img:hover {
     opacity: 0.7;
     /* cursor: pointer; */
   }
+  /* .favorites  */
   .favorites div{
     display: none;
     position: absolute;
@@ -38,14 +41,20 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.3s ease-in-out;
-    cursor: pointer;
     /* z-index: 10; */
   }
   .favorites button {
+    /* display: block; */
     background: white;
     border: none;
     padding: 3px;
     font-size: 0.5rem;
     margin: 2px;
     cursor: pointer;
+  }
+
+  .on{
+    display: block;
+    cursor: pointer;
+
   }
